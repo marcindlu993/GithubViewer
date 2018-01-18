@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row">
+    <div class="col-6">
+        <table class="table">
+            <tr>
+                <th>Login</th>
+                <td>{{ user.login }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Created at</th>
+                <td>{{ user.created_at|strftime }}</td>
+            </tr>
+            <tr>
+                <th>Update at</th>
+                <td>{{ user.updated_at|strftime }}</td>
+            </tr>
+            <tr>
+                <th>Public repos</th>
+                <td>{{ user.public_repos }}</td>
+            </tr>
+                <td><a href={{ user.html_url }}>Account</a></td>
+                <td><a href={{ user.repos_url }}>Repos</a></td>
+        </table>
+    </div>
+    <div class="col-6 text-center">
+        <div class="cn">
+            <a href="{{ user.html_url }}">
+                <img class="img-fluid img-thumbnail img-ico" src="{{ user.avatar_url }}">
+                <p>{{ user.login }}</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
